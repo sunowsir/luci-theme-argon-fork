@@ -7,12 +7,15 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=Argon Theme
-LUCI_DEPENDS:=+curl +jsonfilter
-PKG_VERSION:=2.3.1
-PKG_RELEASE:=20230420
+LUCI_DEPENDS:=+wget +jsonfilter
+PKG_VERSION:=2.3.1.20230420
 
 CONFIG_LUCI_CSSTIDY:=
 
-include $(TOPDIR)/feeds/luci/luci.mk
+define Package/luci-theme-argon/conffiles
+/www/luci-static/argon/background/
+endef
+
+include ../../luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
